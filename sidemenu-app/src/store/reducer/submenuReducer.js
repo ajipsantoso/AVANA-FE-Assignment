@@ -1,18 +1,8 @@
 import { UPDATE_SHOW_DONE, UPDATE_ALLOW_DONE, CHOOSE_MENU_DONE } from '../action/actionList';
+import dummyData from '../../utils/dummy-menu.json';
 
 const initialState = {
-  menuList: [
-    { "id": "dashboard", "isShowed": true, "isAllowed": true },
-    {
-      "id": "hq",
-      "isShowed": false,
-      "isAllowed": false,
-      "childs": [
-        { "id": "hq_stockist", "isShowed": false, "isAllowed": false },
-        { "id": "hq_dropship_affiliate", "isShowed": false, "isAllowed": false }
-      ]
-    }
-  ],
+  menuList: dummyData,
   selectedMenu: {}
 };
 
