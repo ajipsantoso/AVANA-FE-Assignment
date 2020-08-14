@@ -1,12 +1,20 @@
 import React from 'react';
 import Table from '../../components/Table/Table' 
+import { connect } from "react-redux";
 
-function MainPage() {
+function MainPage(props) {
+  const { tableListData } = props;
   return (
     <div className="MainPage">
-      <Table />
+      <Table listData={tableListData} />
     </div>
   );
 }
 
-export default MainPage;
+const mapStateToProps = (state) => {
+  return {
+    tableListData: state.submenu.menuList
+  };
+}
+
+export default connect(mapStateToProps)(MainPage);

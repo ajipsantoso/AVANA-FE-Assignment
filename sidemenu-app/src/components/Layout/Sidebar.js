@@ -4,6 +4,7 @@ import logo from '../../assets/img/logo.png'
 import Avatar from '../Avatar/Avatar';
 import MenuList from '../MenuList/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from "react-redux";
 
 const drawerWidth = 240
 
@@ -25,8 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function Sidebar() {
+function Sidebar(props) {
   const classes = useStyles();
+  const { menuListData } = props;
   return (
     <Drawer
         variant="permanent"
@@ -42,10 +44,16 @@ function Sidebar() {
         <Avatar />
       </section>
       <section className={classes.menuList}>
-        <MenuList />
+        <MenuList listData={menuListData} />
       </section>      
     </Drawer>
   );
 }
 
-export default Sidebar;
+const mapStateToProps = (state) => {
+  return {
+    menuListData: state.submenu.menuList
+  };
+}
+
+export default connect(mapStateToProps)(Sidebar);

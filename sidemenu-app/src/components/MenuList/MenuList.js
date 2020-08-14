@@ -32,18 +32,6 @@ class MenuList extends React.Component {
     this.state = {
       open: true,
       selectedIndex: 0,
-      menuData: [
-        { "id": "dashboard", "isShowed": true, "isAllowed": true },
-        {
-          "id": "hq",
-          "isShowed": false,
-          "isAllowed": false,
-          "childs": [
-            { "id": "hq_stockist", "isShowed": false, "isAllowed": false },
-            { "id": "hq_dropship_affiliate", "isShowed": false, "isAllowed": false }
-          ]
-        }
-      ]
     }
     this.formatListData = this.formatListData.bind(this);
   }
@@ -97,7 +85,7 @@ class MenuList extends React.Component {
           aria-labelledby="nested-list-subheader"
           className={classes.root}
         >
-          {this.formatListData(this.state.menuData)}
+          {this.formatListData(this.props.listData)}
         </List>
       </div>
     );
