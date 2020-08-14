@@ -1,11 +1,9 @@
 import { select, takeEvery, put, call } from 'redux-saga/effects';
-import { UPDATE_ALLOW, UPDATE_SHOW, UPDATE_ALLOW_DONE, UPDATE_SHOW_DONE } from '../action/actionList';
+import { UPDATE_ALLOW, UPDATE_SHOW, UPDATE_ALLOW_DONE, UPDATE_SHOW_DONE, CHOOSE_MENU, CHOOSE_MENU_DONE } from '../action/actionList';
 
 const findMenu = (listMenu, payload) => {
   listMenu.forEach(function recursive(itemMenu, idx) {
     if (itemMenu.id === payload.id) {
-      
-      console.log('ketemu', {[payload.type]: payload.value})
       itemMenu[payload.type]= payload.value
     }
     Array.isArray(itemMenu.childs) && itemMenu.childs.forEach(recursive);
@@ -30,9 +28,15 @@ function* updateAllow(action) {
   yield put({type: UPDATE_ALLOW_DONE, payload: [...listMenu]});
 }
 
+function* chooseMenu(action) {
+  const { payload } = action;
+  yield put({type: CHOOSE_MENU_DONE, payload: payload});
+}
+
 function* submenuSaga() {
   yield takeEvery(UPDATE_ALLOW, updateAllow);
   yield takeEvery(UPDATE_SHOW, updateShow);
+  yield takeEvery(CHOOSE_MENU, chooseMenu);
 }
 
 export default submenuSaga;
