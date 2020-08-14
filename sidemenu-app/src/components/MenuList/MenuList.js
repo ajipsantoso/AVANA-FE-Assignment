@@ -58,10 +58,10 @@ function ListRow(props) {
         ? <React.Fragment>
             <ListItem 
               classes={{ root: classes.listItem, selected: classes.selected}}
-              selected={menuSelect.selectedMenu === listData.id}
+              selected={menuSelect.selectedMenu.id === listData.id}
               button
               // onClick={this.handleClick}
-              onClick={() => menuSelect.onSelectMenu(listData.id)}
+              onClick={() => menuSelect.onSelectMenu(listData)}
             >
               <ListItemText primary={listData.id} />
               {!open ? <ExpandLess /> : <ExpandMore />}
@@ -78,8 +78,8 @@ function ListRow(props) {
           ? <ListItem
               classes={{ root: classes.listItem, selected: classes.selected}}
               button
-              selected={menuSelect.selectedMenu === listData.id}
-              onClick={() => menuSelect.onSelectMenu(listData.id)}
+              selected={menuSelect.selectedMenu.id === listData.id}
+              onClick={() => menuSelect.onSelectMenu(listData)}
             >
               <ListItemText primary={listData.id} />
             </ListItem>

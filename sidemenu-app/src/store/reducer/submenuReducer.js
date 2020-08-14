@@ -13,7 +13,7 @@ const initialState = {
       ]
     }
   ],
-  selectedMenu: null
+  selectedMenu: {}
 };
 
 const reducer = (state = initialState, action) => {
