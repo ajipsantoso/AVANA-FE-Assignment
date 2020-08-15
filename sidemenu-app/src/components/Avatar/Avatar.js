@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Avatar } from '@material-ui/core';
 import profileAsset from '../../assets/img/profile.jpg';
-// import './assets/css/App.css';
+
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',

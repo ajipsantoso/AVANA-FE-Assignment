@@ -1,5 +1,12 @@
-import { select, takeEvery, put, call } from 'redux-saga/effects';
-import { UPDATE_ALLOW, UPDATE_SHOW, UPDATE_ALLOW_DONE, UPDATE_SHOW_DONE, CHOOSE_MENU, CHOOSE_MENU_DONE } from '../action/actionList';
+import { select, takeEvery, put } from 'redux-saga/effects';
+import {
+  UPDATE_ALLOW,
+  UPDATE_SHOW,
+  UPDATE_ALLOW_DONE,
+  UPDATE_SHOW_DONE,
+  CHOOSE_MENU,
+  CHOOSE_MENU_DONE
+} from '../action/actionList';
 
 const findMenu = (listMenu, payload) => {
   listMenu.forEach(function recursive(itemMenu, idx) {
@@ -10,7 +17,8 @@ const findMenu = (listMenu, payload) => {
   })
   return listMenu
 }
-const getList = state => state.submenu.menuList
+
+const getList = state => state.submenu.menuList;
 
 function* updateShow(action) {
   const { payload } = action;

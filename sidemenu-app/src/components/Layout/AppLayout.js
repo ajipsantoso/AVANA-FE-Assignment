@@ -2,9 +2,8 @@ import React from 'react';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import { makeStyles } from '@material-ui/core/styles';
-// import styled from 'styled-components';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   AppLayout: {
     display: 'flex',
   },

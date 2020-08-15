@@ -20,17 +20,17 @@ import {
 import { connect } from 'react-redux';
 import { updateAllow, updateShow } from '../../store/action/actionList';
 
-const useStyles = theme => ({
+const useStyles = () => ({
   table: {
     minWidth: 650,
-  },
+  }
 });
 
 const useRowStyles = makeStyles({
   root: {
     '& > *': {
-      borderBottom: 'unset',
-    },
+      borderBottom: 'unset'
+    }
   },
   table: {
     paddingLeft: '20'
@@ -129,16 +129,16 @@ function Row(props) {
       }
     </React.Fragment>
   )
-}
+};
 
 class TableComponent extends React.Component {
   constructor() {
     super();
     this.formatTableData = this.formatTableData.bind(this);
-  }
+  };
 
   formatTableData(tableData) {
-    const {onChangeIsShow, onChangeIsAllow} = this.props
+    const {onChangeIsShow, onChangeIsAllow} = this.props;
     return (<React.Fragment>
       {
         tableData.map((rowData, idx) => {
@@ -146,13 +146,8 @@ class TableComponent extends React.Component {
         })
       }
       </React.Fragment>)
-  }
-  // handleClick = () => {
-  //   this.setState({ open: !this.state.open })
-  // };
-  // handleListItemClick = (event, index) => {
-  //   this.setState({ selectedIndex: index })
-  // };
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -174,13 +169,13 @@ class TableComponent extends React.Component {
       </TableContainer>
     );
   }
-}
+};
 
 const mapDispatchToPatch = (dispatch) => {
   return {
     onChangeIsShow: (payload) => dispatch(updateShow(payload)),
-    onChangeIsAllow: (payload) => dispatch(updateAllow(payload)),
+    onChangeIsAllow: (payload) => dispatch(updateAllow(payload))
   }
-}
+};
 
 export default connect(null, mapDispatchToPatch)(withStyles(useStyles)(TableComponent));

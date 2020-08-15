@@ -25,8 +25,7 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     backgroundColor: '#1c1c1c',
     color: '#ffffff',
-    maxHeight: '100vh',
-    // overflowY: 'scroll'
+    maxHeight: '100vh'
   },
 }))
 
