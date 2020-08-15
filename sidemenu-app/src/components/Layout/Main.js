@@ -6,8 +6,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     background: '#373737',
-    minHeight: '100vh',
-    overflow: 'auto',
+    maxHeight: '100vh',
+    overflowY: 'scroll'
   },
   container: {
     paddingTop: theme.spacing(4),

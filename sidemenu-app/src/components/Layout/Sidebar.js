@@ -22,7 +22,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     width: drawerWidth,
     backgroundColor: '#1c1c1c',
-    color: '#ffffff'
+    color: '#ffffff',
+    maxHeight: '100vh',
+    overflowY: 'scroll'
   },
 }))
 
