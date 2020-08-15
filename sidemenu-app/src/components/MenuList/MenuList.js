@@ -51,7 +51,10 @@ function ListRow(props) {
   // console.log(listData)
   const [open, setOpen] = React.useState(false);
   const classes = useListStyles();
-  console.log(classes)
+  const multiList = (listData) => {
+    setOpen(!open)
+    menuSelect.onSelectMenu(listData)
+  }
   return (
     <React.Fragment>
       { listData.childs && listData.isShowed
@@ -61,12 +64,12 @@ function ListRow(props) {
               selected={menuSelect.selectedMenu.id === listData.id}
               button
               // onClick={this.handleClick}
-              onClick={() => menuSelect.onSelectMenu(listData)}
+              onClick={() => multiList(listData)}
             >
               <ListItemText primary={listData.id} />
               {!open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
-            <Collapse in={true} timeout="auto" unmountOnExit>
+            <Collapse in={open} timeout="auto" unmountOnExit>
               <List component="div" disablePadding className={classes.nested}>
                 {listData.childs.map((child, idx) => (
                   <ListRow key={idx} listData={child} menuSelect={menuSelect} />

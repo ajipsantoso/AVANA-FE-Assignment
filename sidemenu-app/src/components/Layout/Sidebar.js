@@ -16,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 50
   },
   menuList: {
-    marginTop: 41 
+    marginTop: 41,
+    overflowY: 'scroll',
+    height: '100%'
   },
   drawerPaper: {
     position: 'relative',
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#1c1c1c',
     color: '#ffffff',
     maxHeight: '100vh',
-    overflowY: 'scroll'
+    // overflowY: 'scroll'
   },
 }))
 
